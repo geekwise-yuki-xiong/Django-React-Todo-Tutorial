@@ -22,7 +22,7 @@
       }
       refreshList = () => {
         axios
-          .get("/api/todos/")
+          .get("https://8000-e45381a7-24c7-4677-96d3-6acc19cf1d03.ws-us02.gitpod.io/api/todos/")
           .then(res => this.setState({ todoList: res.data }))
           .catch(err => console.log(err));
       };
@@ -93,17 +93,17 @@
         this.toggle();
         if (item.id) {
           axios
-            .put(`/api/todos/${item.id}/`, item)
+            .put(`https://8000-e45381a7-24c7-4677-96d3-6acc19cf1d03.ws-us02.gitpod.io/api/todos/${item.id}/`, item)
             .then(res => this.refreshList());
           return;
         }
         axios
-          .post("/api/todos/", item)
+          .post("https://8000-e45381a7-24c7-4677-96d3-6acc19cf1d03.ws-us02.gitpod.io/api/todos/", item)
           .then(res => this.refreshList());
       };
       handleDelete = item => {
         axios
-          .delete(`/api/todos/${item.id}`)
+          .delete(`https://8000-e45381a7-24c7-4677-96d3-6acc19cf1d03.ws-us02.gitpod.io/api/todos/${item.id}`)
           .then(res => this.refreshList());
       };
       createItem = () => {
