@@ -12,4 +12,5 @@ tasks:
           pipenv install djangorestframework==3.10.3 &&
           pipenv install django-cors-headers &&
           pipenv install &&
+          npm install &&
           pipenv shell
