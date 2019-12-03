@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://8000-b479d25f-1a18-4846-8d23-14e0d63ad642.ws-us02.gitpod.io/",
+  "proxy": "https://8000-b479d25f-1a18-4846-8d23-14e0d63ad642.ws-us02.gitpod.io",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
