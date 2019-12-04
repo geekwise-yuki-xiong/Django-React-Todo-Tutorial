@@ -134,5 +134,5 @@ django_heroku.settings(locals())
 # we whitelist https://3000-b479d25f-1a18-4846-8d23-14e0d63ad642.ws-us02.gitpod.io/
 # because that's where frontend will be served
 CORS_ORIGIN_WHITELIST = (
-        'https://3000-d7673aab-840a-4be1-9876-a835def2b954.ws-us02.gitpod.io',
+        'https://3000-cdfdbb10-c57c-4e3c-a2f3-ac69454a8054.ws-us02.gitpod.io',
     )
