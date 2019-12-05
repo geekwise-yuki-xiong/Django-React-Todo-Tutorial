@@ -42,12 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'main',
     'todo',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -128,3 +130,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 django_heroku.settings(locals())
+
+# we whitelist https://3000-b479d25f-1a18-4846-8d23-14e0d63ad642.ws-us02.gitpod.io/
+# because that's where frontend will be served
+CORS_ORIGIN_WHITELIST = (
+        'https://3000-cdfdbb10-c57c-4e3c-a2f3-ac69454a8054.ws-us02.gitpod.io',
+    )
