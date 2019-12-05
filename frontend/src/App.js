@@ -22,7 +22,7 @@ class App extends Component {
     }
     refreshList = () => {
     axios
-        .get("https://8000-cdfdbb10-c57c-4e3c-a2f3-ac69454a8054.ws-us02.gitpod.io/api/todos/")
+        .get("https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/")
         .then(res => this.setState({ todoList: res.data.results }))
         .catch(err => console.log(err));
     };
@@ -93,17 +93,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`https://8000-cdfdbb10-c57c-4e3c-a2f3-ac69454a8054.ws-us02.gitpod.io/api/todos/${item.id}/`, item)
+        .put(`https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("https://8000-cdfdbb10-c57c-4e3c-a2f3-ac69454a8054.ws-us02.gitpod.io/api/todos/", item)
+        .post("https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`https://8000-cdfdbb10-c57c-4e3c-a2f3-ac69454a8054.ws-us02.gitpod.io/api/todos/${item.id}`)
+        .delete(`https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
