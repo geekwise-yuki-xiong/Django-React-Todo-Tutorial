@@ -6,24 +6,27 @@ import axios from "axios";
 
 class App extends Component {
     constructor(props) {
-    super(props);
-    this.state = {
-        viewCompleted: false,
-        activeItem: {
-        title: "",
-        description: "",
-        completed: false
-        },
-        todoList: []
-    };
+        super(props);
+        this.state = {
+            viewCompleted: false,
+            activeItem: {
+            title: "",
+            description: "",
+            completed: false
+            },
+            todoList: []
+        };
     }
     componentDidMount() {
-    this.refreshList();
+        this.refreshList();
     }
-    refreshList = () => {
-    axios
+    refreshList = async () => {
+    await axios
         .get("https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/")
-        .then(res => this.setState({ todoList: res.data.results }))
+        .then(res => {
+            this.setState({ todoList: res.data.results });
+            console.log(res.data)
+        })
         .catch(err => console.log(err));
     };
     displayCompleted = status => {
@@ -89,20 +92,20 @@ class App extends Component {
     toggle = () => {
     this.setState({ modal: !this.state.modal });
     };
-    handleSubmit = item => {
+    handleSubmit = async (item) => {
     this.toggle();
     if (item.id) {
-        axios
+        await axios
         .put(`https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
-    axios
+    await axios
         .post("https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/", item)
         .then(res => this.refreshList());
     };
-    handleDelete = item => {
-    axios
+    handleDelete = async (item) => {
+    await axios
         .delete(`https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/${item.id}`)
         .then(res => this.refreshList());
     };
