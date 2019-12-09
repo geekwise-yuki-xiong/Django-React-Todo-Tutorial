@@ -19,13 +19,15 @@ class App extends Component {
     }
     componentDidMount() {
         this.refreshList();
+        setInterval(() => {
+            this.refreshList(); 
+        }, 2000);            
     }
     refreshList = async () => {
     await axios
-        .get("https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/")
+        .get("https://8000-f7f7e309-7f85-4bb9-8371-ca7f5fdfe509.ws-us02.gitpod.io/api/todos/")
         .then(res => {
             this.setState({ todoList: res.data.results });
-            console.log(res.data)
         })
         .catch(err => console.log(err));
     };
@@ -96,17 +98,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
         await axios
-        .put(`https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/${item.id}/`, item)
+        .put(`https://8000-f7f7e309-7f85-4bb9-8371-ca7f5fdfe509.ws-us02.gitpod.io/api/todos/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     await axios
-        .post("https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/", item)
+        .post("https://8000-f7f7e309-7f85-4bb9-8371-ca7f5fdfe509.ws-us02.gitpod.io/api/todos/", item)
         .then(res => this.refreshList());
     };
     handleDelete = async (item) => {
     await axios
-        .delete(`https://8000-cf51ccf8-2e8d-482e-8f10-63d6f8572118.ws-us02.gitpod.io/api/todos/${item.id}`)
+        .delete(`https://8000-f7f7e309-7f85-4bb9-8371-ca7f5fdfe509.ws-us02.gitpod.io/api/todos/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
