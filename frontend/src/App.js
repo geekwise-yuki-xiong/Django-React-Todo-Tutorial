@@ -28,6 +28,7 @@ class App extends Component {
         .get("https://8000-f7f7e309-7f85-4bb9-8371-ca7f5fdfe509.ws-us02.gitpod.io/api/todos/")
         .then(res => {
             this.setState({ todoList: res.data.results });
+            
         })
         .catch(err => console.log(err));
     };
