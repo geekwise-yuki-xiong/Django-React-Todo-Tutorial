@@ -18,7 +18,10 @@ class App extends Component {
     };
     }
     componentDidMount() {
-    this.refreshList();
+        this.refreshList();
+        setInterval(() => {
+            this.refreshList(); 
+        }, 2000);
     }
     refreshList = () => {
     axios
